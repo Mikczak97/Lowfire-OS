@@ -1,17 +1,48 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Lowfire-OS | Oficjalna Strona</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LowFireOS</title>
     <style>
-        body { background-color: #121212; color: #00ff41; font-family: monospace; text-align: center; padding-top: 50px; }
-        h1 { font-size: 3em; }
-        .download-btn { display: inline-block; padding: 15px 30px; background: #00ff41; color: black; text-decoration: none; font-weight: bold; margin-top: 20px; }
+        body { font-family: sans-serif; background: #121212; color: #e0e0e0; display: flex; flex-direction: column; align-items: center; margin: 0; padding: 20px; }
+        nav { margin-bottom: 30px; }
+        button { background: #333; color: white; border: none; padding: 10px 20px; margin: 0 10px; cursor: pointer; border-radius: 5px; transition: 0.3s; }
+        button:hover { background: #555; }
+        .content { width: 100%; max-width: 800px; text-align: center; }
+        .tab-content { display: none; }
+        .active { display: block; }
+        .download-btn { display: inline-block; background: #007bff; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 20px; transition: 0.3s; }
+        .download-btn:hover { background: #0056b3; }
     </style>
 </head>
 <body>
-    <h1>Lowfire-OS</h1>
-    <p>System operacyjny stworzony do walki ze starym sprzętem.</p>
-    <a href="#" class="download-btn">ISO NIEDŁUGO</a>
+
+    <nav>
+        <button onclick="showTab('about')">About</button>
+        <button onclick="showTab('download')">Download</button>
+    </nav>
+
+    <div class="content">
+        <div id="about" class="tab-content active">
+            <h1>Welcome to LowFireOS</h1>
+            <p>LowFireOS is a lightweight, custom Linux distribution built for efficiency and performance.</p>
+            <p>This project is aimed at providing a clean and minimal experience for advanced users.</p>
+        </div>
+
+        <div id="download" class="tab-content">
+            <h1>Download LowFireOS</h1>
+            <p>Get the latest version of our OS here.</p>
+            
+            <a href="https://github.com/Mikczak97/Lowfire-OS/releases/download/beta/lowfireos-2026.06.20.iso" class="download-btn" download>Download lowfireos-2026.06.20.iso</a>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
 </body>
 </html>
